@@ -1,6 +1,6 @@
 {
   "name": "bisect-any",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "chauchakching",
   "bin": {
     "bisect-any": "./bin/run"
