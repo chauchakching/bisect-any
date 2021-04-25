@@ -18,7 +18,7 @@ describe('bisect', () => {
       bisect({
         start: 1,
         end: 100,
-        commandToCheck: 'node test/isSquareLessThan300.js $$',
+        commandToCheck: 'node test/is-square-less-than300.js %',
       })
     ).resolves.toBe(18);
   });

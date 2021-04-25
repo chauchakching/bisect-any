@@ -1,5 +1,5 @@
-const n = parseInt(process.argv.slice(2)[0])
+const check =  n => {
+  return n ** 2 <= 300
+}
 
-const code = n ** 2 <= 300 ? 0 : 1
-
-process.exit(code)
+module.exports = check

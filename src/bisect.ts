@@ -16,8 +16,11 @@ export const bisect = async ({
   const run =
     check ||
     ((val: number) => {
-      const command = commandToCheck!.replace('$$', String(val));
-      const {code} = shell.exec(command)
+      if (!commandToCheck!.includes('%')) {
+        throw new Error('command string must contains "%" to substitute value')
+      }
+      const command = commandToCheck!.replace('%', String(val));
+      const {code} = shell.exec(command, {silent: true})
       return code === 0
     });
 
@@ -25,21 +28,21 @@ export const bisect = async ({
   const v2 = await run(end);
 
   if (!v1 && !v2) {
-    throw new Error(`Error: Both values (${v1}, ${v2}) are falsy in bisection`);
+    throw new Error(`Both values (${v1}, ${v2}) are falsy in bisection`);
   }
   if (v1 && v2) {
     throw new Error(
-      `Error: Both values (${v1}, ${v2}) are truthy in bisection`
+      `Both values (${v1}, ${v2}) are truthy in bisection`
     );
   }
 
-  const newGoodVal = v1 ? start : end;
-  const newBadVal = v1 ? end : start;
-  const report: Report = {totalRounds: 0, records: []};
+  const goodVal = v1 ? start : end;
+  const badVal = v1 ? end : start;
+  const report: Report = {totalRounds: 1, records: [{goodVal, badVal}]};
 
   return _bisect({
-    badVal: newBadVal,
-    goodVal: newGoodVal,
+    badVal,
+    goodVal,
     run,
     report,
   });
