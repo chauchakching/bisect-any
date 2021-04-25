@@ -1,0 +1,9 @@
+{
+  "extends": ["oclif", "oclif-typescript"],
+  "rules": {
+    "semi": "off",
+    "no-console": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-use-before-define": "off"
+  }
+}
