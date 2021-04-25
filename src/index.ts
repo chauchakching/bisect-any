@@ -1,5 +1,6 @@
 import * as path from 'path';
 import {Command, flags} from '@oclif/command';
+import cli from 'cli-ux'
 import {bisect} from './bisect';
 
 class BisectAny extends Command {
@@ -45,7 +46,9 @@ class BisectAny extends Command {
     // console.log('args', args)
     // console.log('flags', flags)
 
-    const result = await bisect({
+    cli.action.start('Running bisect...')
+
+    const [result, report] = await bisect({
       start: args.start,
       end: args.end,
       check: flags.file ?
@@ -57,7 +60,8 @@ class BisectAny extends Command {
       commandToCheck: flags.command,
     });
 
-    console.log('Found value:', result)
+    cli.action.stop(`\nFound value: ${result}`)
+    console.log(report)
 
     return result
   }

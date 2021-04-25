@@ -16,14 +16,13 @@ export async function _bisect({
   goodVal: number;
   run: CheckFunc;
   report: Report;
-}): Promise<number> {
+}): Promise<[number, Report]> {
   // console.log(`bisect(good: ${goodVal}, bad: ${badVal})`)
 
   const mid = getMid(badVal, goodVal);
 
   if (mid === badVal || mid === goodVal) {
-    console.log(report)
-    return badVal;
+    return [badVal, report];
   }
 
   const result = await run(mid);

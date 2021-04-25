@@ -12,7 +12,7 @@ export const bisect = async ({
   end: number;
   check?: CheckFunc;
   commandToCheck?: string;
-}): Promise<number> => {
+}): Promise<[number, Report]> => {
   const run =
     check ||
     ((val: number) => {
