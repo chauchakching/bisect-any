@@ -1,8 +1,6 @@
 bisect-any
 ==========
 
-
-
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/bisect-any.svg)](https://npmjs.org/package/bisect-any)
 [![Downloads/week](https://img.shields.io/npm/dw/bisect-any.svg)](https://npmjs.org/package/bisect-any)

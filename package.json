@@ -6,8 +6,25 @@
     "bisect-any": "./bin/run"
   },
   "bugs": "https://github.com/chauchakching/bisect-any/issues",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/chauchakching/bisect-any",
+  "keywords": [
+    "bisect", "cli"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "bisect-any"
+  },
+  "repository": "chauchakching/bisect-any",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
     "test": "jest",
     "version": "oclif-dev readme && git add README.md"
@@ -33,23 +50,5 @@
     "ts-jest": "^26.5.5",
     "ts-node": "^8",
     "typescript": "^3.3"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "files": [
-    "/bin",
-    "/lib"
-  ],
-  "homepage": "https://github.com/chauchakching/bisect-any",
-  "keywords": [
-    "oclif"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "oclif": {
-    "bin": "bisect-any"
-  },
-  "repository": "chauchakching/bisect-any",
-  "types": "lib/index.d.ts"
+  }
 }
