@@ -1,5 +1,7 @@
-bisect-any
-==========
+# bisect-any
+
+[![Build](https://github.com/chauchakching/bisect-any/actions/workflows/build.yml/badge.svg)](https://github.com/chauchakching/bisect-any/actions/workflows/build.yml) [![Version](https://img.shields.io/npm/v/bisect-any.svg)](https://www.npmjs.com/package/bisect-any) 
+
 
 Like git-bisect, but on arbitrary function or command to find the "bad" value.
 
