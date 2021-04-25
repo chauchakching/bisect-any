@@ -26,7 +26,7 @@
   "repository": "chauchakching/bisect-any",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b",
     "test": "jest",
     "version": "oclif-dev readme && git add README.md"
   },

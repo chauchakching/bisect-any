@@ -1,30 +1,30 @@
 bisect-any
 ==========
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/bisect-any.svg)](https://npmjs.org/package/bisect-any)
-[![Downloads/week](https://img.shields.io/npm/dw/bisect-any.svg)](https://npmjs.org/package/bisect-any)
-[![License](https://img.shields.io/npm/l/bisect-any.svg)](https://github.com/chauchakching/bisect-any/blob/master/package.json)
+Like git-bisect, but on arbitrary function or command to find the "bad" value.
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g bisect-any
-$ bisect-any COMMAND
-running command...
-$ bisect-any (-v|--version|version)
-bisect-any/0.0.0 darwin-x64 node-v12.19.0
-$ bisect-any --help [COMMAND]
-USAGE
-  $ bisect-any COMMAND
-...
+## Examples
+
+### JS function
+
+Run a default export function from a js file with bisect values
+
+E.g. To find the first integer that it's square is larger than 300 (answer: 18)
+
+Example js function [test/isSquareLessThan300.js](./test/isSquareLessThan300.js)
+
+```bash
+bisect-any --file test/is-square-less-than300.js 1 100
 ```
-<!-- usagestop -->
-# Commands
-<!-- commands -->
 
-<!-- commandsstop -->
+### CLI command
+
+Run a CLI command with bisect values. If the command exit with non-zero code, it's considered a bad value.
+
+Use `%` as placeholder of bisect value in command string.
+
+Example js program [test/is-square-less-than300.js](./test/is-square-less-than300.js)
+
+```bash
+bisect-any --command "node test/is-square-less-than300.js %" 1 100
+```
