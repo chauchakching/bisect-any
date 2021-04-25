@@ -15,7 +15,8 @@
   ],
   "homepage": "https://github.com/chauchakching/bisect-any",
   "keywords": [
-    "bisect", "cli"
+    "bisect",
+    "cli"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -34,7 +35,8 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "@types/shelljs": "^0.8.8",
-    "ramda": "^0.27.1",
+    "fp-ts": "^2.10.4",
+    "monocle-ts": "^2.3.9",
     "shelljs": "^0.8.4",
     "tslib": "^1"
   },
@@ -42,7 +44,6 @@
     "@oclif/dev-cli": "^1",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.41",
-    "@types/ramda": "^0.27.40",
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",

@@ -1,6 +1,8 @@
-import * as R from 'ramda';
+import {pipe} from 'fp-ts/function'
 
 import {CheckFunc, Report} from './types';
+import {Lens} from 'monocle-ts';
+import {append} from 'fp-ts/lib/Array';
 
 export const getMid = (a: number, b: number) => Math.floor(Math.abs(b + a) / 2);
 
@@ -40,12 +42,9 @@ function addRecord(
   {goodVal, badVal}: { goodVal: number; badVal: number },
   report: Report
 ): Report {
-  // @ts-ignore
-  return R.pipe(
-    // @ts-ignore
-    R.over(R.lensProp('totalRounds'), x => x + 1),
-    // @ts-ignore
-    R.over(R.lensProp('records'), R.append({goodVal, badVal}))
-    // @ts-ignore
-  )(report);
+  return pipe(
+    report,
+    Lens.fromProp<Report>()('totalRounds').modify(x => x + 1),
+    Lens.fromProp<Report>()('records').modify(append({goodVal, badVal})),
+  );
 }
