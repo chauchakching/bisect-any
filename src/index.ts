@@ -4,11 +4,12 @@ import {bisect} from './bisect';
 
 class BisectAny extends Command {
   static description = `
-    Run bisect to find the "bad" value on arbitrary function or command.
+    Like git-bisect, but on arbitrary function or command to find the "bad" value.
 
     Examples:
 
-    - Run an default export function from a js file with bisect values
+    - Run a default export function from a js file with bisect values
+      E.g. To find the first integer that it's square is larger than 300 (answer: 18)
 
         bisect-any --file test/is-square-less-than300.js 1 100
 
