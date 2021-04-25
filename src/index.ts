@@ -3,18 +3,19 @@ import {Command, flags} from '@oclif/command';
 import {bisect} from './bisect';
 
 class BisectAny extends Command {
-  // static description = `
-  //   Run bisect to find the "bad" value on arbitrary function or command.
+  static description = `
+    Run bisect to find the "bad" value on arbitrary function or command.
 
-  //   Examples:
+    Examples:
 
-  //   Run an default export function from a js file with bisect values
-  //   > bisect-any --file test/is-square-less-than300.js 1 100
+    - Run an default export function from a js file with bisect values
 
-  //   Run a CLI command with bisect values
-  //   > bisect-any --command "node test/is-square-less-than300.js %" 1 100
-  //   `;
-  static description = 'abc'
+        bisect-any --file test/is-square-less-than300.js 1 100
+
+    - Run a CLI command with bisect values
+
+        bisect-any --command "node test/is-square-less-than300.js %" 1 100
+    `;
 
   static flags = {
     // add --version flag to show CLI version
