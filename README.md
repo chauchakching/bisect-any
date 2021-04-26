@@ -16,7 +16,7 @@ bisect-any --help
 
 ```
 
-## Examples
+## Examples - CLI
 
 ### JS function
 
@@ -28,6 +28,22 @@ Example js function [test/isSquareLessThan300.js](./test/isSquareLessThan300.js)
 
 ```bash
 bisect-any --file test/is-square-less-than300.js 1 100
+
+# Running bisect...... 
+# Found value: 18
+# {
+#   totalRounds: 8,
+#   records: [
+#     { goodVal: 1, badVal: 100 },
+#     { goodVal: 1, badVal: 50 },
+#     { goodVal: 1, badVal: 25 },
+#     { goodVal: 13, badVal: 25 },
+#     { goodVal: 13, badVal: 19 },
+#     { goodVal: 16, badVal: 19 },
+#     { goodVal: 17, badVal: 19 },
+#     { goodVal: 17, badVal: 18 }
+#   ]
+# }
 ```
 
 ### CLI command
@@ -40,4 +56,36 @@ Example js program [test/is-square-less-than300.js](./test/is-square-less-than30
 
 ```bash
 bisect-any --command "node test/is-square-less-than300.js %" 1 100
+```
+
+## Examples - library
+
+```js
+const { bisect } = require('bisect-any')
+
+(async () => {
+  const [result, report] = await bisect({
+    start: 1,
+    end: 100,
+    check: (val) => {
+      return val ** 2 <= 300;
+    },
+  })
+})()
+/**
+ * result === 18
+ * 
+ * report == {
+ *   totalRounds: 8,
+ *   records: [
+ *     { goodVal: 1, badVal: 100 },
+ *     { goodVal: 1, badVal: 50 },
+ *     { goodVal: 1, badVal: 25 },
+ *     { goodVal: 13, badVal: 25 },
+ *     { goodVal: 13, badVal: 19 },
+ *     { goodVal: 16, badVal: 19 },
+ *     { goodVal: 17, badVal: 19 },
+ *     { goodVal: 17, badVal: 18 }
+ *   ]
+ * }
 ```

@@ -67,4 +67,7 @@ class BisectAny extends Command {
   }
 }
 
+// @ts-ignore
+BisectAny.bisect = bisect
+
 export = BisectAny
