@@ -5,6 +5,17 @@
 
 Like git-bisect, but on arbitrary function or command to find the "bad" value.
 
+## Usage
+
+```bash
+# install globally
+npm install -g bisect-any
+
+# help
+bisect-any --help
+
+```
+
 ## Examples
 
 ### JS function
