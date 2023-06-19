@@ -34,7 +34,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "@types/shelljs": "^0.8.8",
-    "cli-ux": "^5.5.1",
+    "cli-ux": "^6.0.0",
     "fp-ts": "^2.10.4",
     "monocle-ts": "^2.3.9",
     "shelljs": "^0.8.4",
